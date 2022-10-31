@@ -63,28 +63,13 @@ app.use("/a", employes);
 //   });
 // }
 
-const fileStorageEngine = multer.diskStorage({
-  destination: (req,file,cd)=>{
-    cd(null,'./controller')
-  },
-  filename : (req,file,cb)=>{
-    cb(null,Date.now() + '__' +file.originalname)
-  }
-});
- const upload = multer({storage : fileStorageEngine});
-
-//  app.post("/single",upload.single('images'),(req,res)=>{
-//   console.log(req.file);
-//   res.send("data is upload")
-//  })
-
 global.__basedir = __dirname;
 
-var corsOptions = {
-  origin: "http://localhost:5000"
-};
+// const corsOptions = {
+//   origin: "http://localhost:3000"
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 const initRoutes = require("./routes");
 
